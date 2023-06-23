@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateValue } from './redux/action';
+import "./App.css"
 
-function App() {
+const ComponentB = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = (event) => {
+    dispatch(updateValue(event.target.value));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" onChange={handleChange} placeholder='Type here!'/>
     </div>
   );
-}
+};
+
+const ComponentC = () => {
+  const value = useSelector((state) => state.value);
+
+  return (
+    <div>
+      <p>Value: {value}</p>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className='container'>
+      <h1>What You Think Type Here!</h1>
+      <ComponentB />
+      <ComponentC />
+    </div>
+  );
+};
 
 export default App;

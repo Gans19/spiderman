@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .App-logo {
@@ -36,3 +39,28 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+}
+
+input{
+  border:solid gray;
+  outline:none;
+  display:inline-block;
+  height:45px;
+  vertical-align:middle;
+  position:relative;
+  bottom:14px;
+  right:9px;
+  border-radius:22px;
+  width:220px;
+  box-sizing:border-box;
+  padding:0 18px; 
+}
+
